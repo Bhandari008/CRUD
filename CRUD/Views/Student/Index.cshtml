@@ -1,0 +1,47 @@
+﻿@model IEnumerable<CRUD.Models.StudentModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SAddress)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SAddress)
+            </td>
+            <td>
+                <a href = "/Student/Edit?id=@item.Id">Edit</a>
+
+                <a href = "/Student/Delete?id=@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
